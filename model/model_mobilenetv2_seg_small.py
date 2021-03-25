@@ -46,7 +46,7 @@ def conv_bn(inp, oup, kernel, stride):
 
 def conv_dw(inp, oup, kernel, stride):
     return nn.Sequential(
-        nn.Conv2d(inp, inp, kernel, stride, int((kernel-1)/2), groups=inp, bias=False),
+        nn.Conv2d(inp, inp, kernel, stride, int((kernel-1)//2), groups=inp, bias=False),
         nn.BatchNorm2d(num_features=inp, eps=1e-05, momentum=0.1, affine=True),
         nn.ReLU(inplace=True),
 
